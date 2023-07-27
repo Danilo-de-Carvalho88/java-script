@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ONU</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: aqua;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .principal {
+            display: flex;
+            width: 90%;
+            height: 90%;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: antiquewhite;
+            border-radius: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="principal">
+        <h1>Verifiador de Nacionalidade</h1>
+        <form>
+            Onde você reside atualmente: <input type="text" name="pais" id="pais">
+            <input type="button" value="verificador" onclick="verificar()">
+        </form>
+        <div id="res">
+        </div>
+    </div>
+
+    <script>
+        function verificar(){
+            var nacao = document.getElementById('pais');
+            var res = document.getElementById('res');
+            var pais = String(nacao.value);
+            res.innerHTML = `<p>Você está está vivendo no(a) ${pais}</p>`;
+
+            if (pais == 'Brasil') {
+                res.innerHTML += '<p>Você é brasileiro!</p>';
+            } else {
+                res.innerHTML += '<p>Você é estrangeiro!</p>';
+            }
+        }
+    </script>
+</body>
+</html>
